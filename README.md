@@ -1,11 +1,10 @@
-<h1 align="center">Hi 👋, I'm Tharushi Paranagama</h1>
-<h3 align="center">Information Technology Undergraduate | Front-End Developer | UI/UX Enthusiast</h3>
+<h1 align="center">Hi 👋, I'm Sravanthi Panga</h1>
+<h3 align="center">Information Technology Graduate | Full stack Developer | UI/UX Enthusiast</h3>
 
 ---
 
 ## 🌐 My Portfolio
 
-🚀 Live Preview: **[https://tharushi-paranagama.netlify.app/](https://tharushi-paranagama.netlify.app/)**
 
 This is my personal portfolio website where I showcase my:
 
@@ -46,7 +45,6 @@ This is my personal portfolio website where I showcase my:
 ## 🚀 How to Run Locally
 
 ```bash
-git clone https://github.com/Tharushi111/My-Portfolio.git
 cd My-Portfolio
 npm install
 npm start
@@ -69,9 +67,8 @@ This portfolio was created to:
 
 ## 🤝 Connect With Me
 
-* LinkedIn: www.linkedin.com/in/tharushi-paranagama-a0b657355
-* Email: tharushiparanagama1@gmail.com
-* Portfolio: [[https://tharushi-paranagama.netlify.app/](https://tharushi-paranagama.netlify.app/)]
+* LinkedIn: https://www.linkedin.com/in/sravanthi-panga-174382204/
+* Email: pangasravanthi0599@gmail.com
 
 ---
 
