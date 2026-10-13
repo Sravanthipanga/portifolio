@@ -1,5 +1,6 @@
 import { CSSProperties } from "react";
 import { EDUCATION, EXPERIENCE, PROFILE } from "@/lib/data";
+import { asset } from "@/lib/asset";
 import IdCard from "../ui/IdCard";
 
 const CSS = `
@@ -56,7 +57,7 @@ export default function About() {
             {PROFILE.resumeSummary[5]}
           </p>
           <div className="about-btns rv" style={{ "--i": 4 } as CSSProperties}>
-            <a href={PROFILE.resume} download className="btn btn-primary">
+            <a href={asset(PROFILE.resume)} download className="btn btn-primary">
               Résumé <span aria-hidden="true">↓</span>
             </a>
             <a href={PROFILE.github} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">

@@ -3,6 +3,7 @@
 import { CSSProperties, MouseEvent, useEffect, useRef, useState } from "react";
 import { PROFILE } from "@/lib/data";
 import { useScroll } from "@/lib/scroll";
+import { asset } from "@/lib/asset";
 
 const CSS = `
 .hero { position: relative; min-height: 100svh; overflow: hidden; padding-top: var(--nav-h);
@@ -202,8 +203,8 @@ export default function Hero() {
             preload="auto"
             aria-label={`Video introduction by ${PROFILE.name}`}
           >
-            <source src="/hero/hero.webm" type="video/webm" />
-            <source src="/hero/hero.mp4" type="video/mp4" />
+            <source src={asset("/hero/hero.webm")} type="video/webm" />
+            <source src={asset("/hero/hero.mp4")} type="video/mp4" />
           </video>
           </div>
           <button
@@ -226,7 +227,7 @@ export default function Hero() {
             <a href="#contact" className="btn btn-ghost" onClick={(e) => go(e, "contact")}>
               Let&apos;s talk
             </a>
-            <a href={PROFILE.resume} download className="btn btn-ghost">
+            <a href={asset(PROFILE.resume)} download className="btn btn-ghost">
               Résumé <span aria-hidden="true">↓</span>
             </a>
           </div>

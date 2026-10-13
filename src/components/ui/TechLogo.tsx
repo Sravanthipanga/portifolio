@@ -1,4 +1,5 @@
 import { CSSProperties, ReactNode } from "react";
+import { asset } from "@/lib/asset";
 
 /**
  * Brand logos live in /public/logos (devicon "original" SVGs, MIT; a few
@@ -314,7 +315,7 @@ export default function TechLogo({ icon, size = 24, className = "", style, decor
     return (
       // eslint-disable-next-line @next/next/no-img-element
       <img
-        src={`/logos/${brand.file}`}
+        src={asset(`/logos/${brand.file}`)}
         alt={decorative ? "" : brand.label}
         width={size}
         height={size}
