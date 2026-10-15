@@ -1,7 +1,8 @@
 "use client";
 
-import { CSSProperties, useState } from "react";
+import { CSSProperties, useRef, useState } from "react";
 import { PROJECTS } from "@/lib/data";
+import { useInView } from "@/lib/hooks";
 import SectionHeading from "../ui/SectionHeading";
 import TechLogo from "../ui/TechLogo";
 import MiniUI from "../ui/MiniUI";
@@ -28,6 +29,9 @@ const CSS = `
 .wk { display: flex; gap: 10px; height: min(78svh, 600px); margin-top: 56px; }
 .wk-p { position: relative; flex: 1 1 0; min-width: 76px; border-radius: 28px; background: var(--card); overflow: hidden;
   box-shadow: inset 0 0 0 1px var(--line); transition: flex-grow .9s var(--ease), box-shadow .6s var(--ease); }
+.wk-rv { opacity: 0; transform: translateY(24px); }
+.wk-rv.is-in { opacity: 1; transform: none; transition: flex-grow .9s var(--ease), box-shadow .6s var(--ease),
+  opacity .9s var(--ease) calc(var(--i, 0) * 80ms), transform .9s var(--ease) calc(var(--i, 0) * 80ms); }
 .wk-p.is-open { flex-grow: 8; box-shadow: inset 0 0 0 1px var(--line), 0 40px 90px -40px rgba(13,13,13,.35); }
 
 .wk-spine { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: space-between;
@@ -82,6 +86,10 @@ const CSS = `
 
 export default function Work() {
   const [open, setOpen] = useState(0);
+  // Reveal state lives in React: a class added straight to the DOM (like the
+  // global .rv observer does) would be wiped when hovering re-renders a panel.
+  const listRef = useRef<HTMLUListElement>(null);
+  const shown = useInView(listRef, { threshold: 0.1 });
 
   return (
     <section id="work" className="section" aria-labelledby="work-title">
@@ -96,13 +104,13 @@ export default function Work() {
           </p>
         </div>
 
-        <ul className="wk">
+        <ul ref={listRef} className="wk">
           {PROJECTS.map((p, i) => {
             const isOpen = open === i;
             return (
               <li
                 key={p.id}
-                className={`wk-p rv${isOpen ? " is-open" : ""}`}
+                className={`wk-p wk-rv${shown ? " is-in" : ""}${isOpen ? " is-open" : ""}`}
                 style={{ "--i": i } as CSSProperties}
                 onMouseEnter={() => setOpen(i)}
               >
