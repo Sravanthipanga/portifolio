@@ -6,14 +6,22 @@ All text comes from [`public/Sravanthi_Panga_Resume.pdf`](public/Sravanthi_Panga
 
 ## Run it
 
+**Live site:** https://sravanthipanga.github.io/portifolio/
+
 ```bash
 npm install
 npm run dev        # http://localhost:3000
-npm run build      # production build (types + lint)
-npm start          # serve the production build
+npm run build      # static export into ./out (types + lint)
+npm start          # preview ./out locally
 ```
 
-Set `NEXT_PUBLIC_SITE_URL` (for example `https://sravanthi.dev`) when deploying, so the Open Graph image resolves to an absolute URL.
+## Hosting (GitHub Pages)
+
+The site is a static export (`output: "export"` in `next.config.ts`). `.github/workflows/pages.yml` builds it and publishes it to GitHub Pages on every push to `main`. It sets `NEXT_PUBLIC_BASE_PATH=/portifolio` and `NEXT_PUBLIC_SITE_URL` for you.
+
+One-time setup: in the repo, go to **Settings → Pages → Build and deployment → Source** and choose **GitHub Actions**.
+
+All `/public` paths go through `asset()` in `src/lib/asset.ts`, so the site also works under a sub-path. To host it at a domain root (Vercel, Netlify, or a custom domain), leave `NEXT_PUBLIC_BASE_PATH` unset.
 
 ## Sections
 

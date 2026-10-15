@@ -1,4 +1,5 @@
 import { CSSProperties, ReactNode } from "react";
+import { asset } from "@/lib/asset";
 
 /**
  * Brand logos live in /public/logos (devicon "original" SVGs, MIT; a few
@@ -48,6 +49,11 @@ export const BRAND: Record<string, { file: string; label: string; tint: string }
   kotlin: { file: "kotlin.svg", label: "Kotlin", tint: "#7F52FF" },
   tailwindcss: { file: "tailwindcss.svg", label: "Tailwind CSS", tint: "#38BDF8" },
   github: { file: "github.svg", label: "GitHub", tint: "#181717" },
+  csharp: { file: "csharp.svg", label: "C#", tint: "#9B4F96" },
+  ruby: { file: "ruby.svg", label: "Ruby", tint: "#CC342D" },
+  go: { file: "go.svg", label: "Go", tint: "#00ADD8" },
+  vuejs: { file: "vuejs.svg", label: "Vue.js", tint: "#42B883" },
+  graphql: { file: "graphql.svg", label: "GraphQL", tint: "#E10098" },
   sumologic: { file: "sumologic.svg", label: "Sumo Logic", tint: "#000099" },
   jmeter: { file: "jmeter.svg", label: "Apache JMeter", tint: "#D22128" },
 };
@@ -133,6 +139,12 @@ export const CONCEPT: Record<string, ReactNode> = {
       {p("M4 13v6a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-6")}
       {p("M4 13h4.5l1.5 2.5h4l1.5-2.5H20")}
       {p("M12 3v8M8.5 6.5 12 3l3.5 3.5")}
+    </>
+  ),
+  gateway: (
+    <>
+      <rect x="9" y="3" width="6" height="18" rx="1.5" />
+      {p("M2 7h7M2 12h7M2 17h7M15 12h7M19 9l3 3-3 3")}
     </>
   ),
   breaker: (
@@ -314,7 +326,7 @@ export default function TechLogo({ icon, size = 24, className = "", style, decor
     return (
       // eslint-disable-next-line @next/next/no-img-element
       <img
-        src={`/logos/${brand.file}`}
+        src={asset(`/logos/${brand.file}`)}
         alt={decorative ? "" : brand.label}
         width={size}
         height={size}

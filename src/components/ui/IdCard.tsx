@@ -3,6 +3,7 @@
 import { PointerEvent, useEffect, useRef, useState } from "react";
 import { CERTIFICATIONS, EDUCATION, EXPERIENCE, PROFILE, PROJECTS } from "@/lib/data";
 import { prefersReducedMotion } from "@/lib/hooks";
+import { asset } from "@/lib/asset";
 
 const CSS = `
 .lanyard { position: absolute; left: 50%; top: calc(-1 * var(--section-y)); width: 300px; margin-left: -150px;
@@ -206,7 +207,7 @@ export default function IdCard() {
             <div className="idcard-photo">
               <div className="idcard-photo-in">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/portrait-bust.webp" alt={`Portrait of ${PROFILE.name}`} width={480} height={600} />
+                <img src={asset("/portrait-bust.webp")} alt={`Portrait of ${PROFILE.name}`} width={480} height={600} />
               </div>
             </div>
             <p className="idcard-name">{PROFILE.name}</p>

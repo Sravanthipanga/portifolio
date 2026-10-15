@@ -19,6 +19,7 @@ const TECH_ICON: Record<string, string> = {
   "HL7/FHIR": "contract",
   PostgreSQL: "postgresql",
   GitHub: "github",
+  GraphQL: "graphql",
   "Jakarta EE": "box",
 };
 

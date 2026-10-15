@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { PROFILE } from "@/lib/data";
+import { asset } from "@/lib/asset";
 import "./globals.css";
 
 const sans = localFont({
@@ -38,9 +39,9 @@ export const metadata: Metadata = {
     title,
     description,
     type: "website",
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: `${PROFILE.name}, ${PROFILE.role}` }],
+    images: [{ url: asset("/og.jpg"), width: 1200, height: 630, alt: `${PROFILE.name}, ${PROFILE.role}` }],
   },
-  twitter: { card: "summary_large_image", title, description, images: ["/og.jpg"] },
+  twitter: { card: "summary_large_image", title, description, images: [asset("/og.jpg")] },
 };
 
 export const viewport: Viewport = {

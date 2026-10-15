@@ -85,6 +85,30 @@ function Claims() {
   );
 }
 
+function Medicare() {
+  const rows = [0.85, 0.62, 0.74, 0.55, 0.8];
+  return (
+    <>
+      <div className="mui-tabs">
+        {["Claims", "Members", "Providers"].map((t, i) => (
+          <span key={t} className={i === 0 ? "on" : undefined}>
+            {t}
+          </span>
+        ))}
+      </div>
+      <span className="mui-lock">Medicare · Medicaid</span>
+      {rows.map((w, i) => (
+        <div key={i} className="mui-row">
+          <b />
+          <div className="ln dk" style={{ width: `${w * 100}%` }} />
+          <div className="ln" style={{ width: `${(1.3 - w) * 70}%` }} />
+          <div className={`mui-pill${i === 1 || i === 3 ? "" : " dk"}`} />
+        </div>
+      ))}
+    </>
+  );
+}
+
 function Components() {
   return (
     <>
@@ -192,6 +216,7 @@ const TITLES: Record<ProjectUI, string> = {
   pipeline: "foundry / pipeline",
   queries: "postgres / latency",
   migration: "src / migration.diff",
+  medicare: "claims / medicare-medicaid",
 };
 
 export default function MiniUI({ kind }: { kind: ProjectUI }) {
@@ -212,6 +237,7 @@ export default function MiniUI({ kind }: { kind: ProjectUI }) {
         {kind === "pipeline" && <Pipeline />}
         {kind === "queries" && <Queries />}
         {kind === "migration" && <Migration />}
+        {kind === "medicare" && <Medicare />}
       </div>
       <span className="mui-label" aria-hidden="true">
         Illustrative UI
