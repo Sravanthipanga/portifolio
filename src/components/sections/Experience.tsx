@@ -5,7 +5,15 @@ import { EDUCATION, EXPERIENCE } from "@/lib/data";
 import { useScrollProgress } from "@/lib/hooks";
 import SectionHeading from "../ui/SectionHeading";
 
-type Stop = { when: string; title: string; place: string; detail: string; kind: "Work" | "Education" };
+type Stop = {
+  when: string;
+  title: string;
+  place: string;
+  detail: string;
+  kind: "Work" | "Education";
+  highlights?: string[];
+  tech?: string[];
+};
 
 const [ms, bs] = EDUCATION;
 const [bamboo, context4, optum, phoenix] = EXPERIENCE;
@@ -15,6 +23,8 @@ const role = (e: (typeof EXPERIENCE)[number], detail: string): Stop => ({
   place: [e.company, e.place].filter(Boolean).join(" · "),
   detail,
   kind: "Work",
+  highlights: e.bullets.filter((b) => b !== detail),
+  tech: e.tech,
 });
 
 // Chronological: education and experience on one path.
@@ -46,6 +56,24 @@ const CSS = `
 .xp-title { margin-top: 8px; font-weight: 700; font-size: clamp(22px, 2.2vw, 32px); letter-spacing: -0.04em; line-height: 1.1; }
 .xp-place { margin-top: 6px; font-weight: 500; color: var(--ink-2); }
 .xp-detail { margin-top: 10px; max-width: 62ch; color: var(--mute); font-size: 15px; }
+.xp-more { margin-top: 14px; }
+.xp-more summary { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; list-style: none;
+  font: 500 12px/1 var(--nf-mono); text-transform: uppercase; letter-spacing: .04em; color: var(--ink);
+  padding: 9px 14px; border-radius: 999px; box-shadow: inset 0 0 0 1px rgba(13,13,13,.2);
+  transition: background .4s var(--ease), color .4s var(--ease); }
+.xp-more summary::-webkit-details-marker { display: none; }
+.xp-more summary::after { content: "+"; font-size: 15px; transition: transform .5s var(--ease); }
+.xp-more[open] summary::after { transform: rotate(45deg); }
+.xp-more summary:hover { background: var(--ink); color: #fff; }
+.xp-list { margin-top: 16px; display: grid; gap: 10px; max-width: 70ch; }
+.xp-list li { position: relative; padding-left: 18px; color: var(--ink-2); font-size: 14.5px; line-height: 1.55; }
+.xp-list li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 5px; height: 5px; border-radius: 50%;
+  background: var(--ink); }
+.xp-more[open] .xp-list { animation: xp-in .6s var(--ease) both; }
+@keyframes xp-in { from { opacity: 0; transform: translateY(-6px); } }
+.xp-tech { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
+.xp-tech li { font: 400 11.5px/1 var(--nf-mono); padding: 6px 9px; border-radius: 999px; background: var(--card);
+  box-shadow: inset 0 0 0 1px var(--line); color: var(--ink-2); }
 .xp-next { margin-left: 194px; border-radius: 24px; border: 1.5px dashed rgba(13,13,13,.25); padding: 26px 28px;
   display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .xp-next strong { font-weight: 700; font-size: clamp(22px, 2.2vw, 30px); letter-spacing: -0.04em; }
@@ -98,6 +126,25 @@ export default function Experience() {
                   <h3 className="xp-title">{s.title}</h3>
                   <p className="xp-place">{s.place}</p>
                   <p className="xp-detail">{s.detail}</p>
+                  {s.highlights && s.highlights.length > 0 && (
+                    <details className="xp-more">
+                      <summary>
+                        {s.highlights.length} more highlights
+                      </summary>
+                      <ul className="xp-list">
+                        {s.highlights.map((h) => (
+                          <li key={h}>{h}</li>
+                        ))}
+                      </ul>
+                      {s.tech && (
+                        <ul className="xp-tech" aria-label="Technologies used">
+                          {s.tech.filter(Boolean).map((t) => (
+                            <li key={t}>{t}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </details>
+                  )}
                 </div>
               </li>
             ))}

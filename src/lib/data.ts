@@ -82,6 +82,9 @@ export const SKILL_GROUPS: SkillGroup[] = [
       { name: "HTML", icon: "html5", match: "\\bhtml" },
       { name: "CSS", icon: "css3", match: "\\bcss\\b" },
       { name: "PySpark", icon: "apachespark" },
+      { name: "C#", icon: "csharp", match: "c#" },
+      { name: "Ruby", icon: "ruby" },
+      { name: "Go", icon: "go", match: "\\bgo\\b(?=,| and| microservices)" },
     ],
   },
   {
@@ -90,6 +93,8 @@ export const SKILL_GROUPS: SkillGroup[] = [
       { name: "React", icon: "react", match: "\\breact" },
       { name: "Next.js", icon: "nextjs", match: "next\\.js" },
       { name: "Bootstrap", icon: "bootstrap" },
+      { name: "Angular", icon: "angular" },
+      { name: "Vue.js", icon: "vuejs", match: "vue" },
     ],
   },
   {
@@ -103,6 +108,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
       { name: "Node.js", icon: "nodejs", match: "node\\.js" },
       { name: "Apache Kafka", icon: "apachekafka", match: "\\bkafka\\b" },
       { name: "OSDK", icon: "palantir" },
+      { name: "Jakarta EE", icon: "box", match: "jakarta ee" },
     ],
   },
   {
@@ -129,14 +135,23 @@ export const SKILL_GROUPS: SkillGroup[] = [
       { name: "Circuit Breaker Pattern", icon: "breaker", match: "circuit breaker" },
       { name: "Resilience4j", icon: "shield" },
       { name: "Service Discovery", icon: "radar" },
+      { name: "API Gateway", icon: "gateway" },
+      { name: "Distributed Transactions", icon: "flow" },
+      { name: "Retry and Backoff Strategies", icon: "retry" },
+      { name: "Data Consistency Models", icon: "layers" },
+    ],
+  },
+  {
+    family: "Event Streaming",
+    skills: [
       { name: "Kafka Streams", icon: "apachekafka" },
       { name: "Kafka Connect", icon: "apachekafka" },
-      { name: "Distributed Transactions", icon: "flow" },
+      { name: "Schema Registry", icon: "contract" },
+      { name: "Avro", icon: "box" },
+      { name: "Protobuf", icon: "box" },
       { name: "Idempotent Consumers", icon: "equal" },
       { name: "Exactly-Once Processing", icon: "one" },
       { name: "At-Least-Once Semantics", icon: "plusone" },
-      { name: "Retry and Backoff Strategies", icon: "retry" },
-      { name: "Data Consistency Models", icon: "layers" },
     ],
   },
   {
@@ -223,6 +238,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
       { name: "Communication", icon: "chat", match: "communicat" },
       { name: "Problem-Solving", icon: "bulb", match: "problem-solving|root cause" },
       { name: "Collaboration", icon: "people", match: "collaborat" },
+      { name: "Teamwork", icon: "people", match: "team" },
       { name: "Adaptability", icon: "retry" },
       { name: "Critical Thinking", icon: "bulb" },
       { name: "Time Management", icon: "timer" },
@@ -290,8 +306,16 @@ export const EXPERIENCE: Experience[] = [
       "Conducted performance testing using JMeter and k6, identifying bottlenecks and implementing solutions that improved system throughput by 40%.",
       "Led the migration to Jakarta EE, modernizing legacy applications and enhancing maintainability and scalability of the codebase.",
       "Monitored application performance using Prometheus and Grafana, establishing SLOs and SLAs that improved incident response times by 20%.",
+      "Engineered robust microservices architecture utilizing Java 21 and Spring Boot 3, enhancing application scalability and performance in healthcare solutions.",
+      "Maintained and enhanced a Medicare and Medicaid insurance claims application using Java, Spring Boot, PostgreSQL, and GraphQL, improving backend performance, claims processing workflows, provider and member data management, and overall system scalability through query and database optimization.",
+      "Implemented OAuth2 and OpenID Connect (OIDC) for secure user authentication, significantly improving data protection and compliance with healthcare regulations.",
+      "Leveraged AWS services, including Amazon RDS and Amazon EKS, to deploy and manage applications, achieving high availability and fault tolerance.",
+      "Collaborated with cross-functional teams to design and implement event-driven architecture using Apache Kafka, optimizing data processing and real-time analytics.",
+      "Conducted performance tuning and latency optimization, resulting in a 30% reduction in response times for critical healthcare applications.",
+      "Mentored junior developers on best practices in secure API design and microservices development, fostering a culture of continuous learning.",
+      "Engaged in regular code reviews and integration testing, ensuring high-quality deliverables and adherence to coding standards.",
     ],
-    tech: ["Java 21", "Spring Boot 3", "PostgreSQ", "Docker", "GitHub Actions", "Resilience4j", "Circuit Breaker Pattern", "OpenAPI", "Swagger"],
+    tech: ["Java 21", "Spring Boot 3", "PostgreSQL", "Docker", "GitHub Actions", "Resilience4j", "Circuit Breaker Pattern", "OpenAPI", "Swagger", "AWS", "Apache Kafka", "OAuth2", "OIDC", "GraphQL", "Microservices Architecture", "Event-Driven Architecture", "Jakarta EE"],
   },
   {
     company: "Optum Global Solutions",
@@ -313,8 +337,18 @@ export const EXPERIENCE: Experience[] = [
       "Engaged in stakeholder management, effectively communicating project status and aligning development efforts with business objectives.",
       "Enhanced security measures by implementing OWASP API Top 10 guidelines, ensuring compliance and protecting sensitive data.",
       "Participated in knowledge-sharing sessions, fostering a culture of continuous learning and technical excellence within the team.",
+      "Developed and enhanced the GEMMA enterprise application at Optum using Go, microservices, React, and RESTful APIs, supporting dental benefits administration and claims processing within the FACETS insurance platform. Designed scalable backend services, optimized transaction workflows, and implemented secure, HIPAA-compliant solutions for eligibility, claims adjudication, and financial processing.",
+      "Implemented OAuth 2.0 and other authentication and authorization mechanisms, including role-based access control (RBAC) and token-based security, to protect sensitive application data and ensure secure user access.",
+      "Designed and implemented REST API endpoints, utilizing Swagger for documentation and API versioning, enhancing developer experience and usability.",
+      "Integrated Redis caching to improve application performance, achieving a 25% increase in data retrieval speeds for high-traffic services.",
+      "Collaborated with product teams to gather requirements and translate them into technical specifications, ensuring alignment with business objectives.",
+      "Utilized PostgreSQL and MongoDB for data storage solutions, optimizing query performance through effective indexing strategies.",
+      "Implemented CI/CD processes with Jenkins and Terraform, automating infrastructure provisioning and application deployment, reducing manual efforts by 40%.",
+      "Participated in agile ceremonies, including sprint planning and retrospectives, fostering a collaborative team environment.",
+      "Resolved production issues through root cause analysis and incident response, minimizing downtime and enhancing service reliability.",
+      "Championed best practices in software development, including secure coding standards and performance optimization techniques.",
     ],
-    tech: ["Java 17", "Spring Framework 6", "Apache Kafka", "Redis", "AWS", "Terraform", "JUnit", "Mockito", "API Versioning", "Contract-First APIs"],
+    tech: ["Java 17", "Spring Framework 6", "Apache Kafka", "Redis", "AWS", "Terraform", "JUnit", "Mockito", "API Versioning", "Contract-First APIs", "Go", "React", "PostgreSQL", "MongoDB", "Jenkins", "Swagger", "Microservices Architecture"],
   },
   {
     company: "Phoenix Global",
@@ -333,8 +367,18 @@ export const EXPERIENCE: Experience[] = [
       "Documented technical specifications and user guides, ensuring clear communication of system functionalities to stakeholders.",
       "Supported database indexing and query optimization efforts, resulting in improved data access speeds and overall system performance.",
       "Mentored junior developers, providing guidance on best practices in software development and fostering a collaborative team environment.",
+      "Developed and maintained web applications using Java and Spring MVC, contributing to the overall architecture and design of client solutions.",
+      "Collaborated with UX/UI designers to implement responsive front-end features using React, enhancing user engagement and satisfaction.",
+      "Created and documented RESTful APIs, ensuring compliance with industry standards and facilitating integration with third-party services.",
+      "Assisted in database management using MySQL, focusing on query optimization and data consistency models to improve application performance.",
+      "Engaged in code reviews and provided constructive feedback to peers, promoting a culture of quality and continuous improvement within the team.",
+      "Supported the migration of legacy applications to modern frameworks, enhancing maintainability and scalability.",
+      "Participated in troubleshooting and debugging efforts, resolving issues to ensure optimal application functionality.",
+      "Contributed to the development of internal tools that streamlined workflows and improved team productivity.",
+      "Conducted training sessions for new team members, sharing knowledge on best practices and company standards.",
+      "Actively participated in team meetings, contributing ideas for process improvements and innovative solutions.",
     ],
-    tech: ["Java", "Spring MVC", "MongoDB", "AWS", "Testcontainers", "HTML/CSS", "Agile", "Performance Tuning", "Root Cause Analysis", "Query Optimization"],
+    tech: ["Java", "Spring MVC", "MongoDB", "AWS", "Testcontainers", "HTML/CSS", "Agile", "Performance Tuning", "Root Cause Analysis", "Query Optimization", "MySQL", "React", "REST APIs", "Legacy Migration"],
   },
 ];
 
@@ -349,7 +393,7 @@ export const EDUCATION: Education[] = [
 /* Work — projects named inside the résumé's experience bullets        */
 /* ------------------------------------------------------------------ */
 
-export type ProjectUI = "claims" | "components" | "pipeline" | "queries" | "migration";
+export type ProjectUI = "claims" | "components" | "pipeline" | "queries" | "migration" | "medicare";
 
 export type Project = {
   id: string;
@@ -365,8 +409,18 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
-    id: "gemma",
+    id: "medicare",
     index: "01",
+    title: "Medicare & Medicaid Claims",
+    kicker: "Context4 Healthcare · Insurance claims",
+    description: EXPERIENCE[1].bullets[14],
+    features: ["Claims processing workflows", "Provider & member data", "Query & database optimization", "Scalable backend"],
+    tech: ["Java", "Spring Boot", "PostgreSQL", "GraphQL"],
+    ui: "medicare",
+  },
+  {
+    id: "gemma",
+    index: "02",
     title: "GEMMA",
     kicker: "Optum · Enterprise platform",
     description: EXPERIENCE[2].bullets[1],
@@ -376,7 +430,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "atrium",
-    index: "02",
+    index: "03",
     title: "Atrium",
     kicker: "Optum · Front-end modernization",
     description: EXPERIENCE[2].bullets[3],
@@ -386,7 +440,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "foundry",
-    index: "03",
+    index: "04",
     title: "Foundry Pipelines",
     kicker: "Optum · Healthcare data",
     description: EXPERIENCE[2].bullets[2],
@@ -396,7 +450,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "ceo-app",
-    index: "04",
+    index: "05",
     title: "Internal CEO App",
     kicker: "Context4 Healthcare · Modernization",
     description: EXPERIENCE[1].bullets[2],
@@ -406,7 +460,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "jakarta",
-    index: "05",
+    index: "06",
     title: "Jakarta EE Migration",
     kicker: "Context4 Healthcare · Legacy modernization",
     description: EXPERIENCE[1].bullets[11],
@@ -445,5 +499,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   { value: 30, suffix: "%", label: "Latency", caption: "Decrease in latency for frequently accessed data", detail: "Redis caching · Optum", icon: "redis" },
   { value: 25, suffix: "%", label: "Response time", caption: "Reduction in data-retrieval response time", detail: "PostgreSQL queries & indexing · Context4", icon: "postgresql" },
   { value: 20, suffix: "%", label: "Incident response", caption: "Faster incident response times", detail: "Prometheus & Grafana, SLOs and SLAs · Context4", icon: "grafana" },
+  { value: 30, suffix: "%", label: "Critical apps", caption: "Reduction in response times for critical healthcare applications", detail: "Performance tuning & latency optimization · Context4", icon: "gauge" },
+  { value: 40, suffix: "%", label: "Manual effort", caption: "Less manual effort in provisioning and deployment", detail: "CI/CD with Jenkins and Terraform · Optum", icon: "jenkins" },
   { value: 20, suffix: "%", label: "App response", caption: "Improvement in application response times", detail: "Performance tuning & latency optimization · Phoenix Global", icon: "gauge" },
 ];
