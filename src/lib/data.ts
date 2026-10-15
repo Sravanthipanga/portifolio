@@ -404,6 +404,8 @@ export type Project = {
   features: string[];
   tech: string[];
   github?: string;
+  /** A later phase of the same project, shown after the description. */
+  nextPhase?: { title: string; text: string };
   ui: ProjectUI;
 };
 
@@ -425,7 +427,11 @@ export const PROJECTS: Project[] = [
     kicker: "Optum · Enterprise platform",
     description: EXPERIENCE[2].bullets[1],
     features: ["6 core functional screens", "Secure role-based access", "Optimized database interactions", "HIPAA-compliant workflows"],
-    tech: ["Java 18", "Spring Boot", "React", "RESTful APIs", "Tailwind CSS Modules"],
+    nextPhase: {
+      title: "Go & microservices",
+      text: "Developed and enhanced GEMMA using Go, microservices, React, and RESTful APIs, supporting dental benefits administration and claims processing within the FACETS insurance platform.",
+    },
+    tech: ["Java 18", "Spring Boot", "React", "RESTful APIs", "Tailwind CSS Modules", "Go", "Microservices"],
     ui: "claims",
   },
   {

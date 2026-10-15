@@ -9,6 +9,8 @@ import MiniUI from "../ui/MiniUI";
 
 const TECH_ICON: Record<string, string> = {
   "Java 18": "java",
+  Go: "go",
+  Microservices: "nodes",
   Java: "java",
   "Spring Boot": "springboot",
   React: "react",
@@ -53,6 +55,13 @@ const CSS = `
 .wk-kick b { color: var(--ink); font-weight: 500; }
 .wk-title { margin-top: 18px; font-weight: 700; font-size: clamp(30px, 3vw, 46px); letter-spacing: -0.045em; line-height: 1; }
 .wk-desc { margin-top: 16px; color: var(--ink-2); font-size: 14.5px; line-height: 1.6; }
+.wk-phase { margin-top: 14px; padding: 12px 14px; border-radius: 14px; background: var(--paper);
+  box-shadow: inset 0 0 0 1px var(--line); font-size: 13.5px; line-height: 1.55; color: var(--ink-2); }
+.wk-phase b { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; font: 500 11px/1 var(--nf-mono);
+  text-transform: uppercase; letter-spacing: .05em; color: var(--ink); }
+.wk-phase b::before { content: "→"; }
+/* The phase note replaces the feature bullets (they repeat the description) so the card never overflows. */
+.wk-info.has-phase .wk-feats { display: none; }
 .wk-feats { margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; font-size: 13px; }
 .wk-feats li { display: flex; gap: 8px; color: var(--ink-2); }
 .wk-feats li::before { content: ""; flex: none; width: 5px; height: 5px; margin-top: 7px; border-radius: 50%; background: var(--ink); }
@@ -131,13 +140,19 @@ export default function Work() {
                 <div className="wk-fold">
                   <div>
                     <div className="wk-open" id={`wk-${p.id}`} role="region" aria-label={p.title}>
-                      <div className="wk-info">
+                      <div className={`wk-info${p.nextPhase ? " has-phase" : ""}`}>
                         <p className="wk-kick">
                           <b>{p.index}</b>
                           <span>{p.kicker}</span>
                         </p>
                         <h3 className="wk-title">{p.title}</h3>
                         <p className="wk-desc">{p.description}</p>
+                        {p.nextPhase && (
+                          <p className="wk-phase">
+                            <b>Next phase · {p.nextPhase.title}</b>
+                            {p.nextPhase.text}
+                          </p>
+                        )}
                         <ul className="wk-feats">
                           {p.features.map((f) => (
                             <li key={f}>{f}</li>
