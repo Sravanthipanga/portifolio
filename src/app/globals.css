@@ -296,6 +296,7 @@
     scroll-behavior: auto !important;
   }
   .rv,
+  .wk-rv,
   .rv-mask > span {
     opacity: 1 !important;
     transform: none !important;
