@@ -101,7 +101,7 @@ export default function Contact() {
       </style>
       <div className="wrap">
         <p className="tag rv">
-          <span>07 — Contact</span>
+          <span>08 — Contact</span>
         </p>
         <h2 id="ct-title" ref={headRef} className="ct-h" aria-label="Let's build something together.">
           <HopLine text="Let's build" base={1} />

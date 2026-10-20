@@ -111,7 +111,7 @@ export default function Experience() {
         {CSS}
       </style>
       <div className="wrap">
-        <SectionHeading id="xp-title" index="05" label="Experience" lead="Education and experience, one" accent="path." />
+        <SectionHeading id="xp-title" index="06" label="Experience" lead="Education and experience, one" accent="path." />
         <div ref={pathRef} className="xp-path">
           <div className="xp-spine" aria-hidden="true">
             <i ref={spineRef} />

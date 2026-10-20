@@ -50,6 +50,7 @@ export const NAV: NavItem[] = [
   { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
   { id: "work", label: "Work" },
+  { id: "healthcare", label: "Healthcare" },
   { id: "experience", label: "Experience" },
   { id: "achievements", label: "Achievements" },
   { id: "contact", label: "Contact" },
@@ -508,4 +509,84 @@ export const ACHIEVEMENTS: Achievement[] = [
   { value: 30, suffix: "%", label: "Critical apps", caption: "Reduction in response times for critical healthcare applications", detail: "Performance tuning & latency optimization · Context4", icon: "gauge" },
   { value: 40, suffix: "%", label: "Manual effort", caption: "Less manual effort in provisioning and deployment", detail: "CI/CD with Jenkins and Terraform · Optum", icon: "jenkins" },
   { value: 20, suffix: "%", label: "App response", caption: "Improvement in application response times", detail: "Performance tuning & latency optimization · Phoenix Global", icon: "gauge" },
+];
+
+/* ------------------------------------------------------------------ */
+/* Healthcare domain map — how US healthcare systems fit together.     */
+/* Structure supplied by Sravanthi; "mine" marks the areas her résumé  */
+/* shows she has built for (GEMMA at Optum, Medicare/Medicaid claims   */
+/* and HL7 FHIR APIs at Context4 Healthcare).                          */
+/* ------------------------------------------------------------------ */
+
+export type DomainSystem = { title: string; detail: string; mine?: string };
+export type DomainColumn = { id: string; title: string; tagline: string; systems: DomainSystem[] };
+
+export const HEALTHCARE_COLUMNS: DomainColumn[] = [
+  {
+    id: "provider",
+    title: "Provider systems",
+    tagline: "Deliver care and bill for it",
+    systems: [
+      { title: "EHR / EMR", detail: "Charts, orders, clinical notes" },
+      { title: "Practice management", detail: "Scheduling, registration, intake" },
+      { title: "Coding and billing", detail: "ICD-10, CPT, charge capture" },
+      { title: "Revenue cycle", detail: "Claims, denials, A/R follow-up" },
+      { title: "Credentialing", detail: "Licensing, payer enrollment" },
+      { title: "Provider portal", detail: "Auth status, remits, eligibility" },
+    ],
+  },
+  {
+    id: "payer",
+    title: "Payer and claims",
+    tagline: "Review, price and pay",
+    systems: [
+      { title: "Clearinghouse", detail: "EDI 837 / 835 / 277 routing" },
+      { title: "Eligibility and benefits", detail: "EDI 270 / 271 checks", mine: "GEMMA · eligibility on FACETS" },
+      { title: "Prior authorization", detail: "Medical necessity, EDI 278" },
+      {
+        title: "Adjudication engine",
+        detail: "Edits, rules, pricing, pay/deny",
+        mine: "GEMMA claims adjudication · Medicare & Medicaid claims",
+      },
+      { title: "Contracts and pricing", detail: "Fee schedules, rate tables" },
+      { title: "Payment and EOB", detail: "Remits, checks, appeals", mine: "GEMMA · financial processing" },
+    ],
+  },
+  {
+    id: "member",
+    title: "Member systems",
+    tagline: "Enroll, inform and support",
+    systems: [
+      { title: "Enrollment", detail: "Plans, eligibility, EDI 834" },
+      { title: "Member portal", detail: "ID card, claims, EOB" },
+      { title: "Benefits and plans", detail: "Copay, deductible, limits", mine: "GEMMA · dental benefits administration" },
+      { title: "Care management", detail: "Case mgmt, wellness programs" },
+      { title: "Customer service", detail: "Calls, grievances, appeals" },
+      { title: "Premium billing", detail: "Invoices, payments, renewals" },
+    ],
+  },
+];
+
+export const CLAIM_LIFECYCLE: { title: string; detail: string; mine?: boolean }[] = [
+  { title: "Patient visit", detail: "Care, notes, codes" },
+  { title: "Claim sent", detail: "837 to payer" },
+  { title: "Adjudication", detail: "Edits, pricing, rules", mine: true },
+  { title: "Payment", detail: "835 remit to provider", mine: true },
+  { title: "Patient bill", detail: "EOB, balance, appeals" },
+];
+
+export const HEALTHCARE_STANDARDS: { label: string; mine?: boolean }[] = [
+  { label: "HIPAA", mine: true },
+  { label: "X12 EDI" },
+  { label: "FHIR APIs", mine: true },
+  { label: "CMS rules" },
+  { label: "NCQA" },
+  { label: "State DOI" },
+];
+
+export const PAYER_TYPES: { label: string; mine?: boolean }[] = [
+  { label: "Medicare", mine: true },
+  { label: "Medicaid", mine: true },
+  { label: "Commercial" },
+  { label: "Self-funded employers" },
 ];
