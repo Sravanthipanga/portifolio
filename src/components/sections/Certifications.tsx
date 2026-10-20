@@ -38,7 +38,7 @@ export default function Certifications() {
       <div className="wrap cert-grid">
         <div className="cert-side">
           <p className="tag rv">
-            <span>04 — Certifications</span>
+            <span>05 — Certifications</span>
           </p>
           <h2 id="cert-title" className="h-section" style={{ marginTop: 22 }}>
             <span className="rv-mask" style={{ "--i": 1 } as CSSProperties}>

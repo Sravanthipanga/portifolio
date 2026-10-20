@@ -99,7 +99,7 @@ export default function Achievements() {
         <div className="wrap ach-head">
           <div>
             <p className="tag">
-              <span>06 — Achievements</span>
+              <span>07 — Achievements</span>
             </p>
             <h2 id="ach-title" className="h-section" style={{ marginTop: 22 }}>
               Results, <span className="serif">measured.</span>

@@ -4,6 +4,7 @@ import Hero from "./hero/Hero";
 import About from "./sections/About";
 import Skills from "./sections/Skills";
 import Work from "./sections/Work";
+import Healthcare from "./sections/Healthcare";
 import Certifications from "./sections/Certifications";
 import Experience from "./sections/Experience";
 import Achievements from "./sections/Achievements";
@@ -22,6 +23,7 @@ export default function App() {
         <About />
         <Skills />
         <Work />
+        <Healthcare />
         <Certifications />
         <Experience />
         <Achievements />
