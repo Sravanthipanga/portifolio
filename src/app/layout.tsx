@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { PROFILE } from "@/lib/data";
 import { asset } from "@/lib/asset";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const sans = localFont({
   src: "../fonts/InterTight-Variable.woff2",
@@ -53,7 +54,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${sans.variable} ${serif.variable} ${mono.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
