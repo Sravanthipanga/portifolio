@@ -491,9 +491,14 @@ export const PROJECTS: Project[] = [
     index: "05",
     title: "Internal CEO App",
     kicker: "Context4 Healthcare · Modernization",
-    description: "Modernized an internal CEO application using Java 18, Spring Boot, and PostgreSQL, improving backend performance through query optimization and indexing. Implemented unit and integration testing and leveraged GitHub workflows for source control, code reviews, and collaborative development.",
-    features: ["Query optimization & indexing", "Unit & integration testing", "GitHub workflows", "Code reviews"],
-    tech: ["Java 18", "Spring Boot", "PostgreSQL", "GitHub"],
+    description: "Modernized the internal CEO application with C# and PostgreSQL. Extended capabilities of the CEO Medicare and Medicaid claims application to Android workflows using Kotlin, integrating existing C# backend services through GraphQL APIs and delivering mobile-accessible claims, member, and provider functionality while optimizing service performance and PostgreSQL data access.",
+    features: [
+      "C# & PostgreSQL backend",
+      "Kotlin Android workflows via GraphQL",
+      "ReactJS & Node.js frontend upgrade",
+      "Jenkins CI/CD & Docker",
+    ],
+    tech: ["C#", ".NET", "PostgreSQL", "Kotlin", "GraphQL", "ReactJS", "Node.js", "Jenkins", "Docker"],
     ui: "queries",
   },
   {
