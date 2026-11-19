@@ -6,7 +6,7 @@ All text comes from [`public/Sravanthi_Panga_Resume.pdf`](public/Sravanthi_Panga
 
 ## Run it
 
-**Live site:** https://sravanthipanga.github.io/portifolio/
+**Live site:** https://portfolio-sravanthi.vercel.app/
 
 ```bash
 npm install
