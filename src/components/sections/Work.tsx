@@ -9,6 +9,13 @@ import MiniUI from "../ui/MiniUI";
 
 const TECH_ICON: Record<string, string> = {
   "Java 18": "java",
+  "C#": "csharp",
+  ".NET": "dotnet",
+  Kotlin: "kotlin",
+  ReactJS: "react",
+  "Node.js": "nodejs",
+  Jenkins: "jenkins",
+  Docker: "docker",
   Go: "go",
   Microservices: "nodes",
   Java: "java",

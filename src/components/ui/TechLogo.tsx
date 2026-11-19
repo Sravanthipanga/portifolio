@@ -49,6 +49,10 @@ export const BRAND: Record<string, { file: string; label: string; tint: string }
   kotlin: { file: "kotlin.svg", label: "Kotlin", tint: "#7F52FF" },
   tailwindcss: { file: "tailwindcss.svg", label: "Tailwind CSS", tint: "#38BDF8" },
   github: { file: "github.svg", label: "GitHub", tint: "#181717" },
+  android: { file: "android.svg", label: "Android", tint: "#3DDC84" },
+  jetpackcompose: { file: "jetpackcompose.svg", label: "Jetpack Compose", tint: "#4285F4" },
+  dotnet: { file: "dotnet.svg", label: ".NET", tint: "#512BD4" },
+  airflow: { file: "airflow.svg", label: "Apache Airflow", tint: "#017CEE" },
   csharp: { file: "csharp.svg", label: "C#", tint: "#9B4F96" },
   ruby: { file: "ruby.svg", label: "Ruby", tint: "#CC342D" },
   go: { file: "go.svg", label: "Go", tint: "#00ADD8" },
@@ -139,6 +143,18 @@ export const CONCEPT: Record<string, ReactNode> = {
       {p("M4 13v6a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-6")}
       {p("M4 13h4.5l1.5 2.5h4l1.5-2.5H20")}
       {p("M12 3v8M8.5 6.5 12 3l3.5 3.5")}
+    </>
+  ),
+  spark: (
+    <>
+      {p("M12 3v4M12 17v4M3 12h4M17 12h4")}
+      {p("M12 8.5 13.2 11 15.5 12l-2.3 1-1.2 2.5L10.8 13 8.5 12l2.3-1z")}
+    </>
+  ),
+  book: (
+    <>
+      {p("M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5z")}
+      {p("M20 5.5A1.5 1.5 0 0 0 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z")}
     </>
   ),
   gateway: (
